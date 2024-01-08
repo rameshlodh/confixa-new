@@ -9,4 +9,4 @@ kubectl port-forward svc/nodejs-service 8080:8080 --address 0.0.0.0
 192.168.49.2    domain.com
 
 #To check ingress
-curl -L domain.com/app
+curl -L domain.com
