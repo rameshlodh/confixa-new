@@ -1,4 +1,4 @@
-#To expose deployment port(9001)
+#To expose deployment port(8080)
 kubectl expose deployment nodejs-app --type=NodePort
 
 #To port forward
