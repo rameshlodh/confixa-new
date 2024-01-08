@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git url: "https://github.com/ramesherrorhunter/DevOps-Assessment.git", branch: "main"
+            }
+        }
+        
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    def dockerImage = docker.build("errorhunter/node-app:latest-${BUILD_NUMBER}", '.')
+                }
+            }
+        }
+        
+        stage('Push to Docker Hub') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                        sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
+                        sh "docker push errorhunter/node-app:latest-${BUILD_NUMBER}"
+                    }
+                }
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+    }
+}
