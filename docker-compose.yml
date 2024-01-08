@@ -4,5 +4,5 @@ services:
     container_name: node-app
     build: .
     ports: 
-      - "9001:8080"
+      - "8080:8080"
 
