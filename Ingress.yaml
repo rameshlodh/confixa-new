@@ -4,11 +4,11 @@ metadata:
   name: nodejs-ingress
 spec:
   rules:
-    - host: "domain.com"
+    - host: domain.com
       http:
         paths:
           - pathType: Prefix
-            path: "/app"
+            path: /
             backend:
               service:
                 name: nodejs-service
