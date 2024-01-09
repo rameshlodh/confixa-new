@@ -5,7 +5,7 @@ kubectl expose deployment nodejs-app --type=NodePort
 kubectl port-forward svc/nodejs-service 8080:8080 --address 0.0.0.0
 
 
-#Added minikube ip address in /etc/hosts in ingress -host: domain.com.
+#Added minikube ip address in /etc/hosts in ingress -host: domain.com
 192.168.49.2    domain.com
 
 #To check ingress
