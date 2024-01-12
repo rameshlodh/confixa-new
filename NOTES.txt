@@ -1,12 +1,16 @@
-#To expose deployment port(8080)
-kubectl expose deployment nodejs-app --type=NodePort
+## Deployment of project
 
-#To port forward
-kubectl port-forward svc/nodejs-service 8080:8080 --address 0.0.0.0
+**To expose deployment port(8080)**
+<br>
+`kubectl expose deployment nodejs-app --type=NodePort`
 
+**To port forward**
+<br>
+`kubectl port-forward svc/nodejs-service 8080:8080 --address 0.0.0.0`
 
-#Added minikube ip address in /etc/hosts in ingress -host: domain.com
-192.168.49.2    domain.com
+**To access ArgoCD**
+<br>
+`kubectl port-forward -n argocd svc/argocd-server 9001:80 --address 0.0.0.0`
 
 #To check ingress
 curl -L domain.com
