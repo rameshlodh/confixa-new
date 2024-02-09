@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nodejs-container
-          image: errorhunter/node-app:latest
+          image: asia-south1-docker.pkg.dev/confixa-rnd/confixa-docker-images/abc@sha256:ca610c941de6de009669db6c7c7c71f9842c4f2dceb8b48d9b0992a0be89b38d
           ports:
             - containerPort: 8080 
 
